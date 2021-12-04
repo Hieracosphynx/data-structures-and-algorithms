@@ -1,25 +1,22 @@
-console.log('SELECTION ALGORITHM');
+const swap = require("./helpers/swap");
+
+console.log("SELECTION ALGORITHM");
 const array = [3, 2, 4, 1, 5, 8, 6, 9, 7, 0];
 console.log(`Unsorted: ${array}`);
 
-let timeNow;
-let finalTime;
-const selection = (a) => {
-  let min = 0;
-  let temp;
-  for (let i = 0; i < a.length - 1; i++) {
-    min = i;
-    for (let j = i + 1; j < a.length; j++) {
-      if (a[j] < a[min]) {
-        min = j;
-      }
-    }
-    if (min != i) {
-      temp = a[i];
-      a[i] = a[min];
-      a[min] = temp;
-    }
-  }
+const selection = (arr) => {
+	let min = 0;
+	for (let i = 0; i < arr.length - 1; i++) {
+		min = i;
+		for (let j = i; j < arr.length; j++) {
+			if (arr[min] > arr[j]) {
+				min = j;
+			}
+		}
+		if (min != i) {
+			swap(arr, i, min);
+		}
+	}
 };
 
 selection(array);

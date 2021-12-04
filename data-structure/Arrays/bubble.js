@@ -1,22 +1,19 @@
-console.log('BUBBLE SORTING ALGORITHM');
+const swap = require("./helpers/swap");
+
 const array = [1, 3, 7, 5, 1, 3, 0, 8];
 
 console.log(`Unsorted: ${array}`);
 
-let temp;
-
-const bubbleSort = (a) => {
-  for (let i = 0; i < a.length; i++) {
-    for (let j = 0; j < a.length; j++) {
-      if (a[j] > a[j + 1]) {
-        temp = a[j];
-        a[j] = a[j + 1];
-        a[j + 1] = temp;
-      }
-    }
-  }
+const bubble = (arr) => {
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j < arr.length; j++) {
+			if (arr[j] > arr[j + 1]) {
+				swap(arr, j, j + 1);
+			}
+		}
+	}
 };
 
-bubbleSort(array);
+bubble(array);
 
 console.log(`Sorted: ${array}`);
